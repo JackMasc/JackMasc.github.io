@@ -1,0 +1,148 @@
+.footer-style{
+    font-size:medium;
+    background-color: #4d4d4d;
+}
+
+.no-bullets{
+    list-style-type: none;
+}
+
+.in-line{
+    display: inline-block;
+}
+
+.footer-dark {
+    --bs-navbar-color: rgba(255, 255, 255, 0.55);
+    --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
+    --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
+    --bs-navbar-active-color: #fff;
+  }
+
+.my-img{
+    width: 80%;
+    height: 80%;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.my-box:hover{
+    box-sizing: border-box;
+    border: 1.5px solid gray;
+}
+
+.my-flex-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.my-card-title{
+    font-size: x-large;
+}
+
+.my-article-title{
+    font-size:medium ;
+}
+
+.my-flexx{
+    
+    justify-content: center;
+}
+
+.my-relative-positioning {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.instagram-link{
+    font-size: inherit;
+}
+
+.facebook-link{
+    font-size: inherit;
+}
+
+.copyright-link{
+    font-size: inherit;
+}
+
+.my-breadcrumb{
+    background-color: #343434;
+    color: #fff;
+    font-size: medium;
+    text-decoration: none;
+}
+
+.my-breadcrumb:hover{
+    color: rgb(190, 190, 190);
+}
+
+.content-padding{
+    padding-top: 3%; 
+    padding-left: 15%; 
+    padding-right: 15%;
+    padding-bottom: 5%;
+}
+
+.sticky-nav {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1020;
+    top: var(--main-nav-height);
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    color:#343434;
+    padding: 10px ;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 575.98px) { 
+    .scroll-top{
+        bottom: 0px;
+        right: 0px;
+    }
+}
+
+.scroll-top:hover {
+    color: #5c5c5c;
+}
+
+.hidden {
+    display: none;
+ }
+
+.article {
+    background-color: inherit;
+}
+
+.v-space{
+    padding-top: 5px;
+}
+
+.article > h1, h2, h3, h4, h5, h6 {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.highlight{
+    background-color: #f1f1f1;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+    color: #fff;
+    border-radius: 10px;
+}

@@ -40,3 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
     footNote.style.left = "0";
   }
 });
+  
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to close the navbar collapse
+  function closeNavbarCollapse() {
+    var navbarCollapse = document.getElementById('navbarSupportedContent');
+    if (navbarCollapse.classList.contains('show')) {
+      navbarCollapse.classList.remove('show');
+    }
+  }
+
+  // Get the About and Home link elements
+  var aboutLink = document.getElementById('about-link');
+  var homeLink = document.getElementById('home-link');
+
+  // Add click event listeners to the About and Home links
+  aboutLink.addEventListener('click', closeNavbarCollapse);
+  homeLink.addEventListener('click', closeNavbarCollapse);
+});

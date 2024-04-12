@@ -26,10 +26,10 @@
                 <a class=" nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item px-3">
-                <a  class=" nav-link" href="/articles">Notes</a>
+                <a  class=" nav-link active" href="/articles">Notes</a>
                 </li>
                 <li class="nav-item px-3">
-                <a class=" nav-link active" href="/#about">About</a>
+                <a class=" nav-link" href="/#about">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav  ms-md-auto ">
@@ -55,10 +55,93 @@
 
     
 
-<div class="container-fluid content-padding" >
+<nav class="my-breadcrumb px-1 sticky-nav " id="sec-nav" style=" --bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb px-4 py-2 ">
+      <li class="breadcrumb-item nav-link"><a href="/articles" class="my-breadcrumb">Articles</a></li>
+      <li class="breadcrumb-item nav-link "><a href="/articles/git" class="my-breadcrumb">Git</a></li>
+      <li class="breadcrumb-item active" style="color: white;" aria-current="page">Cheatsheet</li>
+    </ol>
+</nav>
+
+<div class="container-fluid content-padding article" >
    
-    About
-    
+
+
+<h2>Git cheatsheet</h2>
+<h4>Tags</h4>
+<p>Note that tags are personal and they are not automatically updated for all the users when you update them, so the best practice is to always create a new tag instead of deleting an old one if the tag is already on the remote</p>
+<h4>Useful commands</h4>
+<ul>
+<li>
+<p><code>git log &lt;branch/tag/commit&gt; &lt;filename&gt;</code> <br>
+   shows the parent commits that did update that file</p>
+</li>
+<li>
+<p><code>git log &lt;branch&gt; ^&lt;to_be_excluded_with_its_parents</code></p>
+</li>
+<li>
+<p><code>git log A...B</code> <br>
+   commit difference between two operands</p>
+</li>
+<li>
+<p><code>git log --pretty=oneline</code></p>
+</li>
+<li>
+<p><code>git diff master..test</code> <br>
+   find the difference between two branches</p>
+</li>
+<li>
+<p><code>git diff master...test</code> <br>
+   find differences from common ancestor with test</p>
+</li>
+<li>
+<p><code>git diff --cached</code></p>
+</li>
+</ul>
+<h5>Merge</h5>
+<ul>
+<li>
+<p><code>git merge branchname</code> <br>
+   merges the development in the branch branchname into the current branch</p>
+</li>
+<li>
+<p><code>git diff --ours (--theirs) &lt;filename&gt;</code></p>
+</li>
+<li>
+<p><code>git merge --abort</code> <br>
+   return to pre-merge status</p>
+</li>
+</ul>
+<h5>Handling mistakes</h5>
+<ul>
+<li>
+<p><code>git commit --amend</code> <br>
+   which will replace the old commit by a new commit incorporating your changes</p>
+</li>
+<li>
+<p><code>git show HEAD@{"1 week ago"}</code> <br>
+   allows you to see the history of what you’ve checked out, useful if you delete branch you should not have deleted <br>
+   reflogs are kept for 30 days, it works for local changes</p>
+</li>
+<li>
+<p><code>git fsck</code> <br>
+   examine dangling objects</p>
+</li>
+</ul>
+<h5>Rewriting history</h5>
+<ul>
+<li><code>git rebase other-branch</code></li>
+<li><code>git rebase --continue</code></li>
+<li><code>git rebase --abort</code></li>
+<li><code>git rebase -i HEAD~5</code></li>
+<li><code>git rebase --onto branch1 branch2 branch3</code> <br>
+   when three branches are involved</li>
+<li><code>git rebase --onto topicA~5 topicA~3 topicA</code> <br>
+   to delete some commits</li>
+</ul>
+
+
+
 </div>
 
 

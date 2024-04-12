@@ -1,34 +1,3 @@
-const INSTAGRAM_LINK = "instagram_link";
-const FACEBOOK_LINK = "facebook_link"
-const COPYRIGHT_LINK = "copyright_link"
-
-document.addEventListener('DOMContentLoaded', function() {
-  var links = document.getElementsByClassName('instagram-link');
-  for (let link of links) {
-    link.addEventListener('click', function() {
-      window.location = INSTAGRAM_LINK;
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var links = document.getElementsByClassName('facebook-link');
-    for (let link of links) {
-      link.addEventListener('click', function() {
-        window.location = FACEBOOK_LINK;
-      });
-    }
-  });
-
-document.addEventListener('DOMContentLoaded', function() {
-var links = document.getElementsByClassName('copyright-link');
-for (let link of links) {
-    link.addEventListener('click', function() {
-    window.location = COPYRIGHT_LINK;
-    });
-}
-});
-
 let adjustNavHeight = function() {
   var mainNav = document.getElementById("main-nav");
   var mainNavHeight = mainNav.getBoundingClientRect().height;

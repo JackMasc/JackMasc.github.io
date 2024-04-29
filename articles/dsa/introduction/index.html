@@ -55,41 +55,68 @@
 
     
 
-    <nav class="my-breadcrumb px-1" style=" --bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-        <ol class="breadcrumb px-4 py-2">
-        <li class="breadcrumb-item nav-link"><a href="/articles" class="nav-link">Notes</a></li>
-        <li class="breadcrumb-item active" style="color: white;" aria-current="page">Networking</li>
-        </ol>
-    </nav>
+<nav class="my-breadcrumb px-1 sticky-nav " id="sec-nav" style=" --bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb px-4 py-2 ">
+      <li class="breadcrumb-item nav-link"><a href="/articles" class="my-breadcrumb">Articles</a></li>
+      <li class="breadcrumb-item nav-link "><a href="/articles/dsa" class="my-breadcrumb">Dsa</a></li>
+      <li class="breadcrumb-item active" style="color: white;" aria-current="page">Introduction</li>
+    </ol>
+</nav>
+
+<div class="container-fluid content-padding article" >
+   
+
+
+<h2>Introduction</h2>
+<p>Data structures and algorithms is a very important topic in computer science, it studies various algorithms and their performance, teaching programmers how to develop fast and efficient algorithms. </p>
+<p>The book I have been reading to learn about this topic, which I highly recommend, is <em>"Grokking Algorithms"</em>. The book smoothly covers the fundamentals in a simple manner. Even though the topic is usually mathematically dense, the book does not require deep mathematical knowledge and allows anyone to grasp the core concepts.</p>
+<p>These are my personal notes about the book so that I have all the concept by hand when I need them. I hope that you can find them useful as well, in case you have any suggestions or corrections please contact me.</p>
+<h4>Algorithms</h4>
+<p>An algorithm is a precise set of actions to follow to accomplish a task. Algorithms are everywhere in our everyday life, a simple example of an algorithm colud be a recipe to cook a certain dish. In the context of computer science, algorithms are a set of instructions that a computer needs to follow to solve a problem or accoplish a task. We instruct the computer to perform a set of steps by translating the algorithm into a program.</p>
+<h4>Performance (big O notation)</h4>
+<p>When we face a problem we can find multiple ways to solve it, and most of the time, one way is better than the other. Therefore, we can think of multiple algorithms to accomplish the same task, but their performance can vary significantly.</p>
+<p>The usual way to keep track of an algorithm performance is by checking the maximum number of steps in which an algorithm solves the problem relative to the size of the problem we are facing. For example, the simple search algorithm, which is linear, in the worst-case scenario takes <em>n</em> steps to find the element inside of an array of <em>n</em> elements. Therefore, its performance is of order <em>n</em>, which in big O notation is written as <em>O(n)</em>.</p>
+<p>The <em>big O notation</em> essentially means "of order" and it describes how the number of steps required to solve the problem grow with respect to the size of the problem <em>n</em>. This notation helps us understand how the problem <em>scales</em> regardless of the specific details of the problem.</p>
+<p>Some recurrent types of performance in terms of <em>big O notation</em> are:
+- <em>O(n)</em>: linear (ex. simple search)
+- <em>O(log(n))</em>: logarithmic (ex. binary search)
+- <em>O(n^2)</em>: quadratic (ex. selection sort)
+- <em>O(n *log(n))</em> (ex. quicksort)
+-_O(n!): factorial (ex. traveling salesperson)</p>
+<h4>Binary search</h4>
+<p>Now, let's look at a specific algorithm: <em>binary search</em>. This algorithm is fast and solves the problem of searching for an item in an ordered list. In our case we will think about looking for a person inside of the phonebook.</p>
+<p>To appreciate the power of <em>binary search</em> let's first consider <em>simple search</em>. When searching for a person in a phonebook using simple search, one would start turning the pages one at a time from the beginning until finding the name. In this case the algorithm's performance is <em>O(n)</em> since, in the worst case scenario, every page of the book needs to be checked. Thus, as the pages of the phonebook grow, the steps needed to perform the search grows linearly.</p>
+<p>However, simple search is not very efficient. In fact, at least intuitively, when looking for a specific name in the phonebook, one would open it around the middle and move forward or backward based on the starting letter. </p>
+<p>A more efficient algorithm is <em>binary search</em>. To simplify the explanation we will imagine ripping in half the phonebook at each step and keeping only the half the name could be into. In this case the "recipe" for this algorithm would be ripping the phonebook in half over and over again until finding the name or determining it's not present.<br>
+In this case the performance is much better, in fact, if you double the phonebook pages, the number of additional steps required to solve the probelm is just one. Translating this consideration in <em>big O notation</em> the algorithm performance is of logarithmic order <em>O(log(n))</em>.</p>
+<p>Here is an example of a binary search Python function that looks for a number in an ordered list of integers. </p>
+<pre><code>def binary_search(number, mylist):
+
+    iterations = 0
+    start = 0
+    end = len(mylist) - 1
+    while start &lt;= end:
+        iterations += 1
+        mid = (start + end) // 2
+        if mylist[mid] == number:
+            return [number, iterations]
+        elif mylist[mid] &lt; number:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return None
+</code></pre>
+<h4>Traveling salesperson</h4>
+<p>Let's now explore an algorithm that performs bad. The problem to solve in this case is the following: a salesman needs to visit
+a certain number <em>n</em> of cities to sell his goods. To save time and fuel he would like to know the order in which he should visit the cities in order to travel
+the least amount of kilometers possible. To find the best route he needs to compare all the routes made of all the possible ordered 
+combinations between the cities, which is <em>n!</em>. <br>
+Thus the performance of the algorithm solving this problem is <em>O(n!)</em> which is really bad and this is the best algorithm known up to now to 
+solve the problem, unless approximate solutions are used.</p>
 
 
 
-
-<div class="container-fluid px-4 py-3 p-md-5">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4">
-
-      <div class="col p-3  p-md-4 ">
-        <a href="introduction" class="nav-link card my-box" >
-            <div class="row p-2 ">
-              <div class="col-5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-file-text img-fluid rounded-start my-img my-relative-positioning" viewBox="0 0 16 16">
-                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
-                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-                </svg>
-              </div>
-              <div class="col-7 ">
-                <div class="my-relative-positioning px-md-3 my-article-title"  >
-                  Networking Introduction
-                </div>
-              </div>
-            </div>
-        </a>
-      </div>
-
-    </div>
 </div>
-
-
 
 
 

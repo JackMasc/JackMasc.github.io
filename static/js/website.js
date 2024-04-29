@@ -53,8 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get the About and Home link elements
   var aboutLink = document.getElementById('about-link');
   var homeLink = document.getElementById('home-link');
+  var articleLink = document.getElementById('article-link');
 
   // Add click event listeners to the About and Home links
   aboutLink.addEventListener('click', closeNavbarCollapse);
   homeLink.addEventListener('click', closeNavbarCollapse);
+  articleLink.addEventListener('click', closeNavbarCollapse);
+
 });

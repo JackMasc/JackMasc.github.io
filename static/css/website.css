@@ -137,7 +137,7 @@
 
 /* Articles styles */
 
-code{
+code {
     background-color: #f1f1f1;
     padding-top: 1px;
     padding-left: 3px;
@@ -145,6 +145,15 @@ code{
     padding-bottom: 1px;
     color: #000000;
     border-radius: 3px;
+}
+
+pre {
+    background-color: #f1f1f1;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
 }
 
 .my-width {
